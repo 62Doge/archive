@@ -1,0 +1,40 @@
+<div class="container">
+    <form [formGroup]="formProduk">
+        <h3 class="text-center">{{jenisMenu}} Produsen</h3>
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Nama</label>
+            <input [class.is-invalid]="formProduk.controls['nama'].invalid && formProduk.controls['nama'].touched" formControlName="nama" type="text" id="nama" class="form-control">
+            <div class="invalid-feedback" *ngIf="formProduk.controls['nama'].hasError('required')">Nama is required</div>
+            <div class="invalid-feedback" *ngIf="formProduk.controls['nama'].hasError('min')">Nama minimal 5</div>
+
+            <label for="exampleFormControlInput2" class="form-label">Jenis</label>
+            <input [class.is-invalid]="formProduk.controls['jenis'].invalid && formProduk.controls['jenis'].touched" formControlName="jenis" type="text" id="jenis" class="form-control">
+            <div class="invalid-feedback" *ngIf="formProduk.controls['jenis'].hasError('required')">Kode is required</div>
+            <div class="invalid-feedback" *ngIf="formProduk.controls['jenis'].hasError('min')">Kode minimal 5</div>
+
+            <label for="exampleFormControlInput2" class="form-label">Harga</label>
+            <input [class.is-invalid]="formProduk.controls['harga'].invalid && formProduk.controls['harga'].touched" formControlName="harga" type="text" id="jenis" class="form-control">
+            <div class="invalid-feedback" *ngIf="formProduk.controls['jenis'].hasError('required')">Harga is required</div>
+
+            <label for="exampleFormControlInput2" class="form-label">Berat</label>
+            <input [class.is-invalid]="formProduk.controls['berat'].invalid && formProduk.controls['berat'].touched" formControlName="berat" type="text" id="jenis" class="form-control">
+            <div class="invalid-feedback" *ngIf="formProduk.controls['berat'].hasError('required')">Berat is required</div>
+
+            <div class="mb-3">
+                <label class="form-label produk">Nama Produsen</label>
+                <select [class.is-invalid]="formProduk.controls['produsen_id'].invalid && formProduk.controls['produsen_id'].touched" formControlName='produsen_id' class="form-select">
+                  <option selected>Pilih nama produsen dibawah...</option>
+                  <option *ngFor="let produsen of listProdusen">{{produsen.id}}</option>
+                </select>
+                <div *ngIf="formProduk.controls['produsen_id'].hasError('required')" class="invalid-feedback">Id produsen is required</div>
+
+            </div>
+
+        </div>
+        <button (click)="save()" [disabled]="formProduk.invalid" type="button" class="btn btn-sm btn-success w-100 mb-3">Tambah</button>
+
+
+    </form>
+
+</div>

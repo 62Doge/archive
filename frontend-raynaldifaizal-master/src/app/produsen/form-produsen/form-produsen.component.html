@@ -1,0 +1,28 @@
+<div class="container">
+    <form [formGroup]="formProdusen">
+        <h3 class="text-center">{{jenisMenu}} Produsen</h3>
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Nama</label>
+            <input [class.is-invalid]="formProdusen.controls['nama'].invalid && formProdusen.controls['nama'].touched" formControlName="nama" type="text" id="nama" class="form-control">
+            <div class="invalid-feedback" *ngIf="formProdusen.controls['nama'].hasError('required')">Nama is required</div>
+            <div class="invalid-feedback" *ngIf="formProdusen.controls['nama'].hasError('min')">Nama minimal 5</div>
+
+            <label for="exampleFormControlInput2" class="form-label">Kode</label>
+            <input [class.is-invalid]="formProdusen.controls['kode'].invalid && formProdusen.controls['kode'].touched" formControlName="kode" type="text" id="kode" class="form-control">
+            <div class="invalid-feedback" *ngIf="formProdusen.controls['kode'].hasError('required')">Kode is required</div>
+            <div class="invalid-feedback" *ngIf="formProdusen.controls['kode'].hasError('min')">Kode minimal 3</div>
+        </div>
+        <div class="mb-3">
+            <label for="staticEmail2" class="form-label">Alamat</label>
+            <textarea [class.is-invalid]="formProdusen.controls['alamat'].invalid && formProdusen.controls['alamat'].touched" class="form-control" formControlName="alamat" id="alamat" placeholder="Message"></textarea>
+
+            <div class="invalid-feedback" *ngIf="formProdusen.controls['alamat'].hasError('required')">Message is required</div>
+        </div>
+
+        <button (click)="save()" [disabled]="formProdusen.invalid" type="button" class="btn btn-sm btn-success w-100 mb-3">Tambah</button>
+
+
+    </form>
+
+</div>

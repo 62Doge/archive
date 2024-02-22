@@ -1,0 +1,28 @@
+<form [formGroup]="formCount">
+    <div class="col">
+        <div class="penjumlahan">
+            <h3>Maksimal Pengurangan</h3>
+            <input formControlName="minimal" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+    </div>
+    <div class="col">
+        <div class="pengurangan">
+            <h3>Maksimal Penjumlahan</h3>
+            <input formControlName="maksimal" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+    </div>
+</form>
+
+<div class="container text-center">
+    <div class="box rounded" [ngStyle]="{'background-color':'black','margin-top':'30px', 'margin-left':'40px', 'margin-right':'40px', padding:'10px',  'border-style':'solid'}">
+
+        <div class="number rounded" [ngStyle]="{margin:'20px',  'font-size':'200px', 'color':'white', 'background':'green'}">
+            {{count}}
+        </div>
+
+        <div class="buttons" [ngStyle]="{margin:'20px', padding:'10px'}">
+            <button (click)="pengurangan(formCount.controls['minimal'].value)" type="button" class="btn btn-danger" [ngStyle]="{'padding-right':'300px', 'padding-top':'20px', 'margin-right':'300px', 'margin-top':'50px', 'margin-bottom':'50px', 'text-align':'center'}">-</button>
+            <button (click)="penjumlahan(formCount.controls['maksimal'].value)" type="button" class="btn btn-primary">+</button>
+        </div>
+    </div>
+</div>

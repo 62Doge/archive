@@ -1,0 +1,32 @@
+<div class="container">
+    <form [formGroup]="formDataDiri">
+        <h3 class="text-center">Form data diri</h3>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Nama</label>
+            <input [class.is-invalid]="formDataDiri.controls['nama'].invalid && formDataDiri.controls['nama'].touched" formControlName="nama" type="text" class="form-control">
+            <div class="invalid-feedback" *ngIf="formDataDiri.controls['nama'].hasError('required')">Nama is required</div>
+            <label for="exampleFormControlInput1" class="form-label">Umur</label>
+            <input [class.is-invalid]="formDataDiri.controls['umur'].invalid && formDataDiri.controls['umur'].touched" formControlName="umur" type="number" class="form-control">
+            <div class="invalid-feedback" *ngIf="formDataDiri.controls['umur'].hasError('required')">Umur is required</div>
+            <div class="invalid-feedback" *ngIf="formDataDiri.controls['umur'].hasError('min')">Umur minimal 18</div>
+            <div class="invalid-feedback" *ngIf="formDataDiri.controls['umur'].hasError('max')">Umur maksimal 30</div>
+            <label for="exampleFormControlInput1" class="form-label">No Telp</label>
+            <input [class.is-invalid]="formDataDiri.controls['notelp'].invalid && formDataDiri.controls['notelp'].touched" formControlName="notelp" type="number" class="form-control">
+            <div class="invalid-feedback" *ngIf="formDataDiri.controls['notelp'].hasError('required')">NoTelp is required</div>
+            <div class="invalid-feedback" *ngIf="formDataDiri.controls['notelp'].hasError('minlength')">Minimal 12 angka</div>
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input [class.is-invalid]="formDataDiri.controls['email'].invalid && formDataDiri.controls['email'].touched" formControlName="email" type="email" class="form-control">
+            <div class="invalid-feedback" *ngIf="formDataDiri.controls['email'].hasError('required')">Email is required</div>
+            <div class="invalid-feedback" *ngIf="formDataDiri.controls['email'].hasError('email')">Must be an email</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Alamat</label>
+            <textarea [class.is-invalid]="formDataDiri.controls['alamat'].invalid && formDataDiri.controls['alamat'].touched" formControlName="alamat" class="form-control" rows="3"></textarea>
+            <div class="invalid-feedback" *ngIf="formDataDiri.controls['alamat'].hasError('required')">Alamat is required</div>
+            <div class="invalid-feedback" *ngIf="formDataDiri.controls['alamat'].hasError('minlength')">Alamat minimal 12 kata</div>
+        </div>
+        <div class="mb-3">
+            <button [disabled]="formDataDiri.invalid" type="button" class="btn btn-primary">Tampilkan</button>
+        </div>
+    </form>
+</div>

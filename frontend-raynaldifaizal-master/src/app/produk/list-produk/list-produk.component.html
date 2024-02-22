@@ -1,0 +1,31 @@
+<div class="container">
+    <h3 class="text-center">Produk</h3>
+    <button class="btn btn-sm btn-success w-25 mb-3" [routerLink]="['/', 'produk', 'tambah']">Tambah</button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nama</th>
+                <th scope="col">Jenis</th>
+                <th scope="col">Harga</th>
+                <th scope="col">Berat</th>
+                <th scope="col">Produsen</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let produk of listProduk ; let i = index">
+                <th scope="row">{{i + 1}}</th>
+                <td>{{produk.nama}}</td>
+                <td>{{produk.jenis}}</td>
+                <td>{{produk.harga}}</td>
+                <td>{{produk.berat}}</td>
+                <td>{{produk.produsen.nama}}</td>
+                <td>
+                    <button [routerLink]="['/', 'produk', 'sunting', produk.id]" class="btn btn-sm btn-primary">Update</button> |
+                    <button class="btn btn-sm btn-danger" (click)="delete(produk.id)">Delete</button>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>

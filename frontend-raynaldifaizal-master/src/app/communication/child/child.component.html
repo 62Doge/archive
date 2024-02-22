@@ -1,0 +1,22 @@
+<div class="container">
+    <h3 class="text-center">Child Component </h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Message</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let message of listMessage; let i = index">
+                <th scope="row">{{i + 1}}</th>
+                <td>{{message.name}}</td>
+                <td>{{message.message}}</td>
+                <td><button class="btn btn-sn btn-success" (click)="sendMessage(i)">Send</button> </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
